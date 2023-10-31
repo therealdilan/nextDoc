@@ -7,11 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Document {
-  id String @id @default(uuid())
-  title String
-  Content String
+model doc {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
 }

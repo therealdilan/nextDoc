@@ -1,17 +1,18 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from "@prisma/client";
 
-const prismaClientSingleton = () => {
-  return new PrismaClient()
+const GlobalForPrisma = global as unknown as {
+  prisma: PrismaClient | undefined;
 }
 
-type PrismaClientSingleton = ReturnType<typeof prismaClientSingleton>
+export const prisma = GlobalForPrisma.prisma ?? new PrismaClient({
+  log: ["query"],
+});
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClientSingleton | undefined
+if (process.env.NODE_ENV !== "production") {
+  GlobalForPrisma.prisma = prisma;
 }
 
-const prisma = globalForPrisma.prisma ?? prismaClientSingleton()
+export function getDocList() {
+  return prisma.doc.findMany();
+}
 
-export default prisma
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
