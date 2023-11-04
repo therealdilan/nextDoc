@@ -1,9 +1,9 @@
+'use client'
+
 import { useState } from 'react';
-import { useClient } from 'next/data-client';
 import Link from 'next/link';
 
 export default function newDoc() {
-    useClient();
     const [content, setContent] = useState('');
 
     const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -34,7 +34,7 @@ export default function newDoc() {
                 <textarea
                     placeholder='Start writing your document here...'
                     name='documentContent'
-                    className='border-none border-slate-900 bg-transparent px-2 py-1 focus-within:outline-none font-medium focus-within:border-b-2'
+                    className='border-none border-slate-900 bg-transparent px-2 py-1 focus-within:outline-none font-medium focus-within:border-b-2 resize-none'
                     onInput={handleInput}
                     value={content}
                 />
