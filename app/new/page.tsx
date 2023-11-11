@@ -1,10 +1,8 @@
-'use client'
-
 import { useState } from 'react';
 import Link from 'next/link';
 import { createNewDoc } from '@/lib/newdoc';
 
-export default function setTextField() {
+export default function SetTextField() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
