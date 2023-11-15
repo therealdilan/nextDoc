@@ -13,6 +13,6 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export function getDocList() {
-  return prisma.doc.findMany();
+  return prisma.docitem.findMany();
 }
 

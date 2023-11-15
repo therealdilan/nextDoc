@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { createNewDoc } from '@/lib/newdoc';
+import { createNewDoc } from '@/lib/docActions';
 
 export default function SetTextField() {
 

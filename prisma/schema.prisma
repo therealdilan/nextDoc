@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model doc {
+model docitem {
   id        String   @id @default(uuid())
   title     String
   content   String
