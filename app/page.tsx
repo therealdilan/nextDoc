@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import DocItem from '@/component/DocItem';
-import { prisma, getDocList } from '@/lib/db'
+import { getDocList } from '@/lib/db'
+import { PrismaClient } from '@prisma/client/edge'
+const prisma = new PrismaClient()
 
 export default async function Home() {
   const docsList = await getDocList()
